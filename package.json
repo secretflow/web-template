@@ -3,19 +3,20 @@
   "private": true,
   "license": "MIT",
   "author": "Tony Wu <tonywu6@protonmail.com>",
-  "repository": "https://github.com/secretflow/javascript-monorepo-template",
-  "description": "FIXME: update repository and description",
+  "repository": "FIXME: update repository URL",
+  "description": "FIXME: update description",
   "scripts": {
-    "bootstrap": "./scripts/bootstrap.sh",
+    "bootstrap": "./scripts/setup_all.sh",
     "postinstall": "is-ci || husky install",
-    "prepare": "nx run-many -t setup",
     "lint:prettier": "prettier --check --ignore-unknown .",
-    "lint": "nx run-many -t lint:prettier -t lint:eslint -t lint:stylelint -t lint:tsc -t lint:black -t lint:ruff -t lint:pyright",
-    "test": "nx run-many -t test:pytest,test:vitest",
+    "lint": "nx run-many -t lint:prettier -t lint:eslint -t lint:stylelint -t lint:black -t lint:ruff",
+    "test": "nx run-many -t test:pytest -t test:vitest",
+    "typecheck": "nx run-many -t typecheck:tsc -t typecheck:pyright",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "nx run-many -t release && changeset tag",
+    "release": "nx run-many --nx-bail -t release",
     "nx": "nx",
+    "start:docs": "nx run docs:start",
     "clean": "git clean -fX ."
   },
   "nx": {
@@ -58,11 +59,11 @@
     "stylelint-order": "^6.0.3",
     "ts-node": "^10.9.1",
     "tsup": "^6.7.0",
-    "typescript": "^4.9.5",
+    "typescript": "^5.2.0",
     "vitest": "^0.32.4"
   },
   "engines": {
     "node": ">=16.20.0"
   },
-  "packageManager": "pnpm@8.4.0"
+  "packageManager": "pnpm@8.7.6"
 }

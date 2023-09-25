@@ -6,4 +6,5 @@
 #   features: []
 #   all-features: false
 
+-e file:pyprojects/demo
 -e file:.

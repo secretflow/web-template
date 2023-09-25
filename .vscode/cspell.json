@@ -21,6 +21,7 @@
     "protoc",
     "pypa",
     "pyproject",
+    "pyprojects",
     "pyright",
     "remarkrc",
     "scql",
