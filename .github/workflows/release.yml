@@ -19,6 +19,7 @@ jobs:
     permissions:
       contents: write # to create release (changesets/action)
       pull-requests: write # to create pull request (changesets/action)
+    secrets: inherit
 
   ci:
     needs: [changesets]
@@ -42,3 +43,4 @@ jobs:
 
     permissions:
       contents: write # to create tags
+    secrets: inherit
