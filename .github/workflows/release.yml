@@ -1,16 +1,43 @@
 # https://github.com/sveltejs/kit/blob/32afba695088b946aefe96da75b36de9b0667fbe/.github/workflows/release.yml
-name: 'Code: Release'
+name: 'Release'
 
 on:
-  push:
-    branches: ['main']
+  workflow_call:
 
 permissions: {}
 
 jobs:
-  release:
+  changesets:
     # prevents this action from running on forks
     # FIXME: [repo] change this to actual repo name
     if: github.repository == 'secretflow/web-template'
-    uses: secretflow/web-ci/.github/workflows/release.yml@main
-    secrets: inherit
+
+    name: Changesets
+    uses: secretflow/web-ci/.github/workflows/release-changesets.yml@main
+
+    permissions:
+      contents: write # to create release (changesets/action)
+      pull-requests: write # to create pull request (changesets/action)
+
+  ci:
+    needs: [changesets]
+    if: |
+      needs.changesets.outputs.should-release == 'true'
+
+    name: Prerelease CI
+    uses: ./.github/workflows/ci.yml
+
+    permissions:
+      contents: read
+      actions: read
+
+  publish:
+    needs: [ci]
+    if: |
+      needs.ci.result == 'success'
+
+    name: Publish
+    uses: secretflow/web-ci/.github/workflows/release-publish.yml@main
+
+    permissions:
+      contents: write # to create tags
