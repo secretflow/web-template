@@ -10,7 +10,7 @@ description = "FIXME: [repo] write the description of your Python package here"
 dynamic = ["version"]
 name = "demo"
 readme = "README.md"
-requires-python = ">=3.8, <3.9"
+requires-python = ">=3.8, <3.11"
 
 [project.scripts]
 

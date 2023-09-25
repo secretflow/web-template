@@ -14,5 +14,5 @@ on:
 
 jobs:
   update:
-    uses: secretflow/web-ci/.github/actions/update-labels.yml@main
+    uses: secretflow/web-ci/.github/workflows/update-labels.yml@main
     secrets: inherit

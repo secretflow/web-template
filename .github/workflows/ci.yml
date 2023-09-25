@@ -16,24 +16,20 @@ permissions:
 jobs:
   ci-javascript:
     name: 'CI: JavaScript'
-    runs-on: ubuntu-latest
+    uses: secretflow/web-ci/.github/workflows/ci-javascript.yml@main
+    with:
+      node-version: ${{ matrix.node-version }}
     strategy:
       fail-fast: false
       matrix:
         node-version: ['16.20.x']
-    steps:
-      - uses: secretflow/web-ci/.github/actions/ci-javascript@main
-        with:
-          node-version: ${{ matrix.node-version }}
 
   ci-python:
     name: 'CI: Python'
-    runs-on: ubuntu-latest
+    uses: secretflow/web-ci/.github/workflows/ci-python.yml@main
+    with:
+      python-version: ${{ matrix.python-version }}
     strategy:
       fail-fast: false
       matrix:
         python-version: ['3.8.x', '3.9.x', '3.10.x']
-    steps:
-      - uses: secretflow/web-ci/.github/actions/ci-python@main
-        with:
-          python-version: ${{ matrix.python-version }}
