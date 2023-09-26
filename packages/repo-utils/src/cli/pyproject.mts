@@ -3,9 +3,9 @@ import * as path from 'node:path';
 
 import { Command } from 'commander';
 
-import { version } from '../package.json';
-
-const pyproject = new Command('pyproject').description('Utils for Python projects');
+export const pyproject = new Command('pyproject').description(
+  'Utils for Python projects',
+);
 
 pyproject
   .command('link')
@@ -58,7 +58,3 @@ pyproject
       }),
     );
   });
-
-const program = new Command();
-
-program.name('repo-utils').version(version).addCommand(pyproject).parse();
