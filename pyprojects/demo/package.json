@@ -7,7 +7,6 @@
     "lint:black": "black --check src tests",
     "lint:ruff": "ruff check src tests",
     "lint:pyright": "pyright src",
-    "test:pytest": "pytest",
-    "release": "hatch publish ./dist"
+    "test:pytest": "pytest"
   }
 }
