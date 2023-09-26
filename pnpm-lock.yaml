@@ -150,18 +150,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/demo-react2:
-    devDependencies:
-      '@secretflow/repo-utils':
-        specifier: workspace:^
-        version: link:../repo-utils
-      '@types/react':
-        specifier: ^18.2.22
-        version: 18.2.22
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/repo-utils:
     dependencies:
       '@iarna/toml':

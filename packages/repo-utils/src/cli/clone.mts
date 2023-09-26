@@ -201,7 +201,6 @@ async function main() {
   }
 
   console.log(colors.green(colors.bold('Done!')));
-  console.log('Remember to run `pnpm run bootstrap` to update dependencies');
 }
 
 clone.action(() =>
