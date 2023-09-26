@@ -1,0 +1,32 @@
+{
+  "name": "demo-node",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/typing/index.d.ts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "setup": "tsup",
+    "build": "tsup",
+    "lint:eslint": "eslint src",
+    "lint:tsc": "tsc --noEmit",
+    "test:vitest": "vitest run",
+    "release": "pnpm publish"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.19",
+    "@secretflow/repo-utils": "workspace:^"
+  }
+}

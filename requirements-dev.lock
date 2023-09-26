@@ -65,7 +65,7 @@ tomlkit==0.12.1
 traitlets==5.9.0
 trove-classifiers==2023.8.7
 typing-extensions==4.7.1
-userpath==1.9.0
+userpath==1.9.1
 virtualenv==20.24.3
 wcwidth==0.2.6
 zipp==3.16.2

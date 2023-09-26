@@ -1,25 +1,13 @@
 {
-  "name": "@secretflow/web-ci-pyproject-demo",
+  "name": "python-demo",
   "private": true,
-  "files": [],
   "version": "0.0.1",
   "scripts": {
     "build": "hatch clean && hatch build -t sdist -t wheel",
-    "test:pytest": "pytest",
     "lint:black": "black --check src tests",
     "lint:ruff": "ruff check src tests",
     "lint:pyright": "pyright src",
-    "release": ": hatch publish ./dist"
-  },
-  "nx": {
-    "$schema": "https://cdn.jsdelivr.net/npm/nx@16.7.0/schemas/project-schema.json",
-    "targets": {
-      "build": {
-        "inputs": [
-          ":default",
-          ":python"
-        ]
-      }
-    }
+    "test:pytest": "pytest",
+    "release": "hatch publish ./dist"
   }
 }

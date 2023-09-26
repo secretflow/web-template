@@ -1,0 +1,37 @@
+{
+  "name": "demo-react",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/typing/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "setup": "tsup",
+    "build": "tsup",
+    "lint:eslint": "eslint src",
+    "lint:tsc": "tsc --noEmit",
+    "test:vitest": "vitest run",
+    "release": "pnpm publish"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.22",
+    "react": "^18.2.0",
+    "@secretflow/repo-utils": "workspace:^"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
