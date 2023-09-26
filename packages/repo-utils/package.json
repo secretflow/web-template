@@ -1,23 +1,26 @@
 {
-  "name": "tsup-utils",
+  "name": "@secretflow/repo-utils",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "module": "./dist/index.js",
-  "types": "./src/index.ts",
+  "module": "./dist/index.mjs",
+  "types": "./src/index.mts",
+  "sideEffects": true,
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./src/index.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
     }
+  },
+  "bin": {
+    "repo-utils": "./dist/cli.mjs"
   },
   "scripts": {
     "setup": "tsup",
     "build": "tsup",
     "lint:eslint": "eslint src",
-    "lint:tsc": "tsc --noEmit",
-    "release": "pnpm publish --dry-run"
+    "lint:tsc": "tsc --noEmit"
   },
   "publishConfig": {
     "access": "public"
@@ -25,6 +28,7 @@
   "dependencies": {
     "@swc/core": "^1.3.69",
     "colorette": "^2.0.20",
+    "commander": "^11.0.0",
     "esbuild-plugin-svgr": "^1.1.0",
     "globby": "^13.2.2",
     "tsup": "^6.7.0"
